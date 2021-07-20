@@ -119,6 +119,129 @@
           }
         }
       }
+    },
+    "core-data-access-store": {
+      "projectType": "library",
+      "root": "libs/core/data-access-store",
+      "sourceRoot": "libs/core/data-access-store/src",
+      "prefix": "lab",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:ng-packagr-lite",
+          "outputs": ["dist/libs/core/data-access-store"],
+          "options": {
+            "project": "libs/core/data-access-store/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/core/data-access-store/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/core/data-access-store/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/core/data-access-store"],
+          "options": {
+            "jestConfig": "libs/core/data-access-store/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/core/data-access-store/src/**/*.ts",
+              "libs/core/data-access-store/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "core-environments": {
+      "projectType": "library",
+      "root": "libs/core/environments",
+      "sourceRoot": "libs/core/environments/src",
+      "prefix": "lab",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:ng-packagr-lite",
+          "outputs": ["dist/libs/core/environments"],
+          "options": {
+            "project": "libs/core/environments/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/core/environments/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/core/environments/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/core/environments"],
+          "options": {
+            "jestConfig": "libs/core/environments/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/core/environments/src/**/*.ts",
+              "libs/core/environments/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "core-publishable": {
+      "projectType": "library",
+      "root": "libs/core/publishable",
+      "sourceRoot": "libs/core/publishable/src",
+      "prefix": "lab",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/core/publishable"],
+          "options": {
+            "project": "libs/core/publishable/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/core/publishable/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/core/publishable/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/core/publishable"],
+          "options": {
+            "jestConfig": "libs/core/publishable/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/core/publishable/src/**/*.ts",
+              "libs/core/publishable/src/**/*.html"
+            ]
+          }
+        }
+      }
     }
   },
   "cli": {

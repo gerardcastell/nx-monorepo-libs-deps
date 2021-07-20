@@ -33,6 +33,15 @@
     "app-lab-e2e": {
       "tags": [],
       "implicitDependencies": ["app-lab"]
+    },
+    "core-data-access-store": {
+      "tags": []
+    },
+    "core-environments": {
+      "tags": []
+    },
+    "core-publishable": {
+      "tags": []
     }
   }
 }
