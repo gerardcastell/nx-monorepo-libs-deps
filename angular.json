@@ -1,0 +1,155 @@
+{
+  "version": 1,
+  "projects": {
+    "app-lab": {
+      "projectType": "application",
+      "root": "apps/app-lab",
+      "sourceRoot": "apps/app-lab/src",
+      "prefix": "lab",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/app-lab",
+            "index": "apps/app-lab/src/index.html",
+            "main": "apps/app-lab/src/main.ts",
+            "polyfills": "apps/app-lab/src/polyfills.ts",
+            "tsConfig": "apps/app-lab/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/app-lab/src/favicon.ico",
+              "apps/app-lab/src/assets"
+            ],
+            "styles": ["apps/app-lab/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/app-lab/src/environments/environment.ts",
+                  "with": "apps/app-lab/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "app-lab:build:production"
+            },
+            "development": {
+              "browserTarget": "app-lab:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "app-lab:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/app-lab/src/**/*.ts",
+              "apps/app-lab/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/app-lab"],
+          "options": {
+            "jestConfig": "apps/app-lab/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "app-lab-e2e": {
+      "root": "apps/app-lab-e2e",
+      "sourceRoot": "apps/app-lab-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/app-lab-e2e/cypress.json",
+            "tsConfig": "apps/app-lab-e2e/tsconfig.e2e.json",
+            "devServerTarget": "app-lab:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "app-lab:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/app-lab-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      },
+      "storybook-configuration": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/angular:application": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "style": "scss"
+    }
+  },
+  "defaultProject": "app-lab"
+}
