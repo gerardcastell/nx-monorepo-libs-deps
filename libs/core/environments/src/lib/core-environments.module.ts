@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { environment } from './environment';
 
 @NgModule({
   imports: [CommonModule],
-  providers: [environment],
+  providers: [],
 })
 export class CoreEnvironmentsModule {}
