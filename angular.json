@@ -82,7 +82,8 @@
               "apps/app-lab/src/**/*.ts",
               "apps/app-lab/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "builder": "@nrwl/jest:jest",
@@ -116,7 +117,8 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/app-lab-e2e/**/*.{js,ts}"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
       }
     },
@@ -157,7 +159,8 @@
               "libs/core/data-access-store/src/**/*.ts",
               "libs/core/data-access-store/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
       }
     },
@@ -198,7 +201,8 @@
               "libs/core/environments/src/**/*.ts",
               "libs/core/environments/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
       }
     },
@@ -239,7 +243,8 @@
               "libs/core/publishable/src/**/*.ts",
               "libs/core/publishable/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
       }
     }
