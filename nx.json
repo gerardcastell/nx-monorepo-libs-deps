@@ -34,10 +34,16 @@
       "tags": [],
       "implicitDependencies": ["app-lab"]
     },
+    "core-buildable": {
+      "tags": []
+    },
     "core-data-access-store": {
       "tags": []
     },
     "core-environments": {
+      "tags": []
+    },
+    "core-normal": {
       "tags": []
     },
     "core-publishable": {

@@ -16,10 +16,12 @@
     "baseUrl": ".",
     "paths": {
       "@lab/core-publishable": ["libs/core/publishable/src/index.ts"],
+      "@lab/core/buildable": ["libs/core/buildable/src/index.ts"],
       "@lab/core/data-access-store": [
         "libs/core/data-access-store/src/index.ts"
       ],
-      "@lab/core/environments": ["libs/core/environments/src/index.ts"]
+      "@lab/core/environments": ["libs/core/environments/src/index.ts"],
+      "@lab/core/normal": ["libs/core/normal/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

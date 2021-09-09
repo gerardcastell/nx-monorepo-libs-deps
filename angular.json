@@ -122,6 +122,47 @@
         }
       }
     },
+    "core-buildable": {
+      "projectType": "library",
+      "root": "libs/core/buildable",
+      "sourceRoot": "libs/core/buildable/src",
+      "prefix": "lab",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:ng-packagr-lite",
+          "outputs": ["dist/libs/core/buildable"],
+          "options": {
+            "project": "libs/core/buildable/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/core/buildable/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/core/buildable/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/core/buildable"],
+          "options": {
+            "jestConfig": "libs/core/buildable/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/core/buildable/src/**/*.ts",
+              "libs/core/buildable/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "core-data-access-store": {
       "projectType": "library",
       "root": "libs/core/data-access-store",
@@ -203,6 +244,31 @@
             ]
           },
           "outputs": ["{options.outputFile}"]
+        }
+      }
+    },
+    "core-normal": {
+      "projectType": "library",
+      "root": "libs/core/normal",
+      "sourceRoot": "libs/core/normal/src",
+      "prefix": "lab",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/core/normal"],
+          "options": {
+            "jestConfig": "libs/core/normal/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/core/normal/src/**/*.ts",
+              "libs/core/normal/src/**/*.html"
+            ]
+          }
         }
       }
     },
